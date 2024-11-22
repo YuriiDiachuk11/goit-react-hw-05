@@ -1,18 +1,23 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { Field, Form, Formik } from "formik";
 
-const Movies = () => {
+const MoviesPage = () => {
+  const handleSubmit = (values, options) => {
+    console.log(values);
+    options.resetForm();
+  };
+  const initialValues = {
+    query: "",
+  };
   return (
     <div>
-      <h2>Movies</h2>
-      <nav>
-        <NavLink to=""></NavLink>
-        <NavLink to=""></NavLink>
-        <NavLink to=""></NavLink>
-        <NavLink to=""></NavLink>
-      </nav>
-      <Outlet />
+      <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+        <Form>
+          <Field name="query" placeholder="Enter movie" />
+          <button type="submit">Search</button>
+        </Form>
+      </Formik>
     </div>
   );
 };
 
-export default Movies;
+export default MoviesPage;

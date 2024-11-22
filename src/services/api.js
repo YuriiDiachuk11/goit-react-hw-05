@@ -29,3 +29,11 @@ export const fetchMovieReviewsById = async (id) => {
   const { data } = await accessAPI.get(`/movie/${id}/reviews`);
   return data.results;
 };
+export const fetchMoviesByQuery = async (query) => {
+  const { data } = await accessAPI.get("/search/movie", {
+    params: {
+      query,
+    },
+  });
+  return data.results;
+};
