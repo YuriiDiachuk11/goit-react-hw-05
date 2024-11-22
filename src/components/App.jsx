@@ -1,17 +1,26 @@
 import { Route, Routes } from "react-router-dom";
-import HomePage from "../pages/HomePage/HomePage";
-import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-import MoviesPage from "../pages/MoviesPage/MoviesPage";
-import MoviesDetailsPage from "../pages/MovieDetailsPage/MovieDetailsPage";
+import Home from "../pages/HomePage/Home";
+import NotFound from "../pages/NotFoundPage/NotFound";
+import Movies from "../pages/MoviesPage/Movies";
+import MovieCast from "../components/MovieCast/MovieCast";
+import MovieReviews from "../components/MovieReviews/MovieReviews";
+import Navigation from "./Navigation/Navigation";
+// import MovieList from "../components/MovieList/MovieList";
+import MovieDetails from "../pages/MovieDetailsPage/MovieDetails";
 
 function App() {
   return (
     <div>
+      <Navigation />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/moviesDetails" element={<MoviesDetailsPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
+          <Route path="cast" element={<MovieCast />} />
+          <Route path="reviews" element={<MovieReviews />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
