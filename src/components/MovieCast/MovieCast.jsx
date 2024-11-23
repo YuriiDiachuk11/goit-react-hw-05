@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchMovieCastById } from "../../services/api";
+import getImage from "../../services/imageBaseURL";
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -17,7 +18,11 @@ const MovieCast = () => {
       <ul>
         {cast.map((actor) => (
           <li key={actor.id}>
-            <img src={actor.profile_path} alt="" />
+            <img
+              src={getImage(actor.profile_path)}
+              alt={actor.name}
+              width="100"
+            />
             <p>{actor.name}</p>
             <p>Character: {actor.character}</p>
           </li>

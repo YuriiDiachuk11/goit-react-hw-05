@@ -8,7 +8,7 @@ const MovieList = ({ movies, location }) => {
         {movies.map((movie) => (
           <li key={movie.id}>
             <Link to={`/movies/${movie.id.toString()}`} state={location}>
-              <p>{movie.title}</p>{" "}
+              <p>{movie.title}</p>
             </Link>
           </li>
         ))}

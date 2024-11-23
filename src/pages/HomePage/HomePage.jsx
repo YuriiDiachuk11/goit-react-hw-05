@@ -4,6 +4,7 @@ import MovieList from "../../components/MovieList/MovieList";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+
   useEffect(() => {
     const getData = async () => {
       const data = await getTrendingMovies();
@@ -11,6 +12,7 @@ const Home = () => {
     };
     getData();
   }, []);
+
   return (
     <div>
       <MovieList movies={movies} />

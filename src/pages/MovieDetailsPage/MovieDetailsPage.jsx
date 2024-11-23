@@ -1,6 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieById } from "../../services/api";
+import getImage from "../../services/imageBaseURL";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -22,10 +23,21 @@ const MovieDetails = () => {
   return (
     <div>
       <Link to={goBackLink.current}>Go back</Link>
-      <img src={movie.poster_path} alt={movie.title} />
+
       <h2>{movie.title}</h2>
-      <p>{movie.overview}</p>
+      <img src={getImage(movie.poster_path)} alt={movie.title} width="300" />
+      <p>Overview {movie.overview}</p>
       <p>Vote Average: {movie.vote_average}</p>
+      {movie.genres && movie.genres.length > 0 && (
+        <div>
+          <h3>Genres</h3>
+          <ul>
+            {movie.genres.map((genre) => (
+              <li key={genre.id}>{genre.name}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       <nav>
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>
