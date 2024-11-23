@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from "formik";
 import MovieList from "../../components/MovieList/MovieList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchMoviesByQuery } from "../../services/api";
 import { useSearchParams } from "react-router-dom";
 
@@ -16,12 +16,17 @@ const MoviesPage = () => {
     movie.title.toLowerCase().includes(query.toLowerCase())
   );
   const handleSubmit = async (values, options) => {
-    const results = await fetchMoviesByQuery(values.query);
-    setMovies(results);
     options.resetForm();
     searchParams.set("query", values.query);
     setSearchParams(searchParams);
   };
+  useEffect(() => {
+    const getResults = async () => {
+      const results = await fetchMoviesByQuery(query);
+      setMovies(results);
+    };
+    getResults();
+  }, [query]);
 
   return (
     <div>
