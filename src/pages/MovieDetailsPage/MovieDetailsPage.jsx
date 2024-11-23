@@ -1,10 +1,14 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Suspense, useEffect, useRef, useState } from "react";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieById } from "../../services/api";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
+  const location = useLocation();
+  console.log(location);
+  const goBackLink = useRef(location.state ?? "/");
+
   useEffect(() => {
     const getDetails = async () => {
       const details = await fetchMovieById(movieId);
@@ -17,6 +21,7 @@ const MovieDetails = () => {
   }
   return (
     <div>
+      <Link to={goBackLink.current}>Go back</Link>
       <img src={movie.poster_path} alt={movie.title} />
       <h2>{movie.title}</h2>
       <p>{movie.overview}</p>
@@ -25,7 +30,9 @@ const MovieDetails = () => {
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>
       </nav>
-      <Outlet />
+      <Suspense fallback={<p>Loading...</p>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
