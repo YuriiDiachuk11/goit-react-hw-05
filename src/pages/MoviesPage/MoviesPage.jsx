@@ -3,6 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import { useEffect, useState } from "react";
 import { fetchMoviesByQuery } from "../../services/api";
 import { useSearchParams } from "react-router-dom";
+import s from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -29,11 +30,13 @@ const MoviesPage = () => {
   }, [query]);
 
   return (
-    <div>
+    <div className={s.box}>
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
-        <Form>
-          <Field name="query" placeholder="Enter movie" />
-          <button type="submit">Search</button>
+        <Form className={s.form}>
+          <Field name="query" placeholder="Enter movie" className={s.input} />
+          <button className={s.btn} type="submit">
+            Search
+          </button>
         </Form>
       </Formik>
 
