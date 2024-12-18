@@ -3,7 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
-  background-color: #050ce0;
+  background-color: #9e6892;
   color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
@@ -12,12 +12,12 @@
   gap: 10px;
   font-size: 1.5rem;
   a {
-    color: red;
+    color: rgb(9, 0, 0);
     font-weight: bold;
     text-decoration: none;
   }
   .active {
     text-decoration: underline;
-    color: green;
+    color: rgb(244, 246, 244);
   }
 }

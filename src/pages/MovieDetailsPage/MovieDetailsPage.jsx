@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieById } from "../../services/api";
 import getImage from "../../services/imageBaseURL";
 import s from "./MovieDetailsPage.module.css";
+import Loader from "../../components/Loader/Loader";
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -19,7 +20,7 @@ const MovieDetails = () => {
     getDetails();
   }, [movieId]);
   if (!movie) {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
   return (
     <div className={s.box}>
@@ -66,7 +67,7 @@ const MovieDetails = () => {
         <Link to="reviews">Reviews</Link>
       </nav>
 
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>
     </div>

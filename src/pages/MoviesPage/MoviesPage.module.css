@@ -1,25 +1,33 @@
 .box {
+  max-width: 100%;
   margin: 0 auto;
-  padding: 18px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  color: #ffffff;
+}
+.title {
+  font-size: 36px;
+  margin-bottom: 10px;
+  color: #ffa500;
+  text-align: center;
 }
 
 .form {
   display: flex;
   gap: 10px;
   margin-bottom: 15px;
+  justify-content: center;
 }
 
 .input {
+  width: 300px;
   padding: 10px 15px;
   border: 2px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s;
-  background-color: linear-gradient(90deg, #a84040, #7c3b3b);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -32,7 +40,7 @@
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-color: #007bff;
+  background-color: #399653;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -41,5 +49,5 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 .btn:hover {
-  background-color: #399653;
+  background-color: #007bff;
 }

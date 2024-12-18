@@ -31,6 +31,7 @@ const MoviesPage = () => {
 
   return (
     <div className={s.box}>
+      <h1 className={s.title}>Find Your Favorite Movie</h1>
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
         <Form className={s.form}>
           <Field name="query" placeholder="Enter movie" className={s.input} />

@@ -1,0 +1,29 @@
+.container {
+  max-width: 800px;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  background-color: #797575;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.author {
+  margin: 0 0 15px 0;
+  color: #101010;
+  font-size: 20px;
+}
+
+.content {
+  margin: 0;
+  font-size: 14px;
+}

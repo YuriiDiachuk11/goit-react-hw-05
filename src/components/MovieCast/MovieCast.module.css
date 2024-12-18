@@ -1,0 +1,43 @@
+.container {
+  max-width: 200px;
+  padding: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  background-color: #282828;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.image {
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+}
+
+.name {
+  margin: 5px 0;
+  color: aliceblue;
+  font-size: 24px;
+}
+
+.character {
+  color: #9e9e9e;
+  font-size: 18px;
+}
