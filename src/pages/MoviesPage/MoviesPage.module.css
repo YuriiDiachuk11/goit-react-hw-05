@@ -19,6 +19,8 @@
   font-size: 16px;
   outline: none;
   transition: border-color 0.3s;
+  background-color: linear-gradient(90deg, #a84040, #7c3b3b);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .input:focus {
@@ -35,8 +37,9 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  background-color: linear-gradient(90deg, #063262, #5095df);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #399653;
 }
